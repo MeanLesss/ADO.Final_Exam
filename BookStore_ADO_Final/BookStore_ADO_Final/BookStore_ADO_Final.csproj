@@ -111,6 +111,18 @@
     <Compile Include="UserControl\AuthorUC.Designer.cs">
       <DependentUpon>AuthorUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\BookCardUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\BookCardUC.Designer.cs">
+      <DependentUpon>BookCardUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\BookInfoUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\BookInfoUC.Designer.cs">
+      <DependentUpon>BookInfoUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\BooksUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -170,6 +182,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\AuthorUC.resx">
       <DependentUpon>AuthorUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\BookCardUC.resx">
+      <DependentUpon>BookCardUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\BookInfoUC.resx">
+      <DependentUpon>BookInfoUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\BooksUC.resx">
       <DependentUpon>BooksUC.cs</DependentUpon>
