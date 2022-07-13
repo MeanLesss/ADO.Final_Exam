@@ -93,6 +93,14 @@
     <Compile Include="Migrations\202207131452455_BookStore3.designer.cs">
       <DependentUpon>202207131452455_BookStore3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202207131705458_BookStore4.cs" />
+    <Compile Include="Migrations\202207131705458_BookStore4.designer.cs">
+      <DependentUpon>202207131705458_BookStore4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202207131707148_BookStore5.cs" />
+    <Compile Include="Migrations\202207131707148_BookStore5.designer.cs">
+      <DependentUpon>202207131707148_BookStore5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Author.cs" />
     <Compile Include="Model\Book.cs" />
@@ -153,6 +161,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202207131452455_BookStore3.resx">
       <DependentUpon>202207131452455_BookStore3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207131705458_BookStore4.resx">
+      <DependentUpon>202207131705458_BookStore4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207131707148_BookStore5.resx">
+      <DependentUpon>202207131707148_BookStore5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\AuthorUC.resx">
       <DependentUpon>AuthorUC.cs</DependentUpon>

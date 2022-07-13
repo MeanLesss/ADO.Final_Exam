@@ -60,6 +60,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.panelDisplayBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxBookCover)).BeginInit();
@@ -406,6 +407,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panelDisplayBooks);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -466,6 +468,13 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(241, 24);
             this.dateTimePicker1.TabIndex = 24;
             // 
+            // panelDisplayBooks
+            // 
+            this.panelDisplayBooks.Location = new System.Drawing.Point(41, 89);
+            this.panelDisplayBooks.Name = "panelDisplayBooks";
+            this.panelDisplayBooks.Size = new System.Drawing.Size(1762, 866);
+            this.panelDisplayBooks.TabIndex = 17;
+            // 
             // BooksUC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,5 +529,6 @@
         private FontAwesome.Sharp.IconButton iconButtonRefresh;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.FlowLayoutPanel panelDisplayBooks;
     }
 }

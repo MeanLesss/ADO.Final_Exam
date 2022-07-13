@@ -86,8 +86,14 @@ namespace BookStore_ADO_Final.UserControl
                     .FirstOrDefault(p => p.PublisherName
                         .Equals(comboBoxPublisher.Text));
 
+                var author = db.Authors
+                    .FirstOrDefault(a => (a.Firstname + " " + a.Lastname) == comboBoxAuthor.Text);
+
                 ICollection<Publisher> publishers = new List<Publisher>();
                 publishers.Add(publish);
+                
+                ICollection<Author> authors = new List<Author>();
+                authors.Add(author);
 
                 db.Books.Add(new Book
                 {
@@ -100,8 +106,7 @@ namespace BookStore_ADO_Final.UserControl
                     Sequel = i,
                     BookCoverDir = dir,
                     Publishers = publishers,
-                    Author = db.Authors
-                        .FirstOrDefault(a => (a.Firstname + " " + a.Lastname) == comboBoxAuthor.Text)
+                    Authors = authors
                 });
                 db.SaveChanges();
             }
