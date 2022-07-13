@@ -30,13 +30,13 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panelBookInfo = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panelDisplayBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
-            this.panelDisplayBooks = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelBookInfo = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -66,6 +66,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
+            // 
+            // panelBookInfo
+            // 
+            this.panelBookInfo.Location = new System.Drawing.Point(433, 178);
+            this.panelBookInfo.Name = "panelBookInfo";
+            this.panelBookInfo.Size = new System.Drawing.Size(905, 575);
+            this.panelBookInfo.TabIndex = 25;
             // 
             // label11
             // 
@@ -89,6 +97,17 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Update";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
+            // 
+            // panelDisplayBooks
+            // 
+            this.panelDisplayBooks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDisplayBooks.AutoScroll = true;
+            this.panelDisplayBooks.Location = new System.Drawing.Point(191, 98);
+            this.panelDisplayBooks.Name = "panelDisplayBooks";
+            this.panelDisplayBooks.Size = new System.Drawing.Size(1441, 866);
+            this.panelDisplayBooks.TabIndex = 17;
             // 
             // label3
             // 
@@ -122,20 +141,6 @@
             this.label12.Size = new System.Drawing.Size(133, 44);
             this.label12.TabIndex = 16;
             this.label12.Text = "Books";
-            // 
-            // panelDisplayBooks
-            // 
-            this.panelDisplayBooks.Location = new System.Drawing.Point(41, 89);
-            this.panelDisplayBooks.Name = "panelDisplayBooks";
-            this.panelDisplayBooks.Size = new System.Drawing.Size(1762, 866);
-            this.panelDisplayBooks.TabIndex = 17;
-            // 
-            // panelBookInfo
-            // 
-            this.panelBookInfo.Location = new System.Drawing.Point(183, 78);
-            this.panelBookInfo.Name = "panelBookInfo";
-            this.panelBookInfo.Size = new System.Drawing.Size(1514, 837);
-            this.panelBookInfo.TabIndex = 25;
             // 
             // BooksUC
             // 

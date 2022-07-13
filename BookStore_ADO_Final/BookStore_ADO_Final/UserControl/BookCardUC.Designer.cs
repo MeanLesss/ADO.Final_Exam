@@ -71,6 +71,7 @@
             this.Controls.Add(this.iconPictureBoxBookCover);
             this.Name = "BookCardUC";
             this.Size = new System.Drawing.Size(325, 419);
+            this.Load += new System.EventHandler(this.BookCardUC_Load);
             this.Click += new System.EventHandler(this.BookCardUC_Click);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxBookCover)).EndInit();
             this.ResumeLayout(false);

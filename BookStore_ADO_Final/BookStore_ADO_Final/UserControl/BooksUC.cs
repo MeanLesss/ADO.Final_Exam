@@ -37,8 +37,26 @@ namespace BookStore_ADO_Final.UserControl
 
         private void BooksUC_Load(object sender, EventArgs e)
         {
-            
+            panelBookInfo.Controls.Clear();
+            panelBookInfo.Controls.Add(new BookInfoUC());
         }
 
+        private void tabPage1_Enter(object sender, EventArgs e)
+        {
+            panelBookInfo.Controls.Clear();
+            panelBookInfo.Controls.Add(new BookInfoUC());
+        }
+
+        private void tabPage2_Enter(object sender, EventArgs e)
+        {
+            using(var db = new DataContext())
+            {
+                var books = db.Books.ToList();
+                foreach(var book in books)
+                {
+                    panelDisplayBooks.Controls.Add(new BookCardUC(book));
+                }
+            }
+        }
     }
 }

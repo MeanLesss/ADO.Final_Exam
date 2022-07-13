@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -10,22 +11,44 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BookStore_ADO_Final.Database;
 using BookStore_ADO_Final.Model;
+using System.Data.Entity.Migrations;
 
 namespace BookStore_ADO_Final.UserControl
 {
     public partial class BookInfoUC : System.Windows.Forms.UserControl
     {
-        private static string PHOTODIR = @"..\..\UserImage\";
-        private static string PHOTODEFAULT = @"..\..\UserImage\default.png";
+        
+        private static string PHOTODIR = @"..\..\BookCover\";
+        private static string PHOTODEFAULT = @"..\..\BookCover\default.png";
 
         private List<string> authorName;
         private List<string> publisherName;
+
+        private Book _book = null;
+        private readonly bool _update = false;
 
         private FileInfo fileInfo = null;
         private Panel _panel;
         public BookInfoUC()
         {
             InitializeComponent();
+        }
+        public BookInfoUC(Book book,bool update)
+        {
+            InitializeComponent();
+            _book = book;
+            _update = update;
+
+            comboBoxAuthor.Visible = false;
+            comboBoxPublisher.Visible = false;
+
+            textBoxTitle.Text = _book.Title;
+            textBoxGenre.Text = _book.Genre;
+            textBoxPages.Text = _book.Pages.ToString();
+            textBoxPrimeCost.Text = _book.PrimeCost.ToString();
+            textBoxSalePrice.Text = _book.SalePrice.ToString();
+            checkBoxSequel.Checked = _book.Sequel;
+            iconPictureBoxBookCover.Image = Image.FromFile(_book.BookCoverDir);
         }
         public BookInfoUC(Panel panel)
         {
@@ -53,10 +76,16 @@ namespace BookStore_ADO_Final.UserControl
         {
             bool i = checkBoxSequel.Checked == true;
             string dir;
+            
             if (fileInfo is null)
             {
                 fileInfo = new FileInfo(PHOTODIR + "default.png");
                 dir = PHOTODIR + fileInfo.Name;
+
+                if(_update is true)
+                {
+                    dir = _book.BookCoverDir;
+                }
             }
             else
             {
@@ -93,20 +122,39 @@ namespace BookStore_ADO_Final.UserControl
                 ICollection<Author> authors = new List<Author>();
                 authors.Add(author);
 
-                db.Books.Add(new Book
+                if (_update is false)
                 {
-                    Title = textBoxTitle.Text,
-                    PrimeCost = prime,
-                    SalePrice = sale,
-                    Pages = pages,
-                    Genre = textBoxGenre.Text,
-                    PublishDate = dateTimePicker1.Value.Date,
-                    Sequel = i,
-                    BookCoverDir = dir,
-                    Publishers = publishers,
-                    Authors = authors
-                });
-                db.SaveChanges();
+                    db.Books.Add(new Book
+                    {
+                        Title = textBoxTitle.Text,
+                        PrimeCost = prime,
+                        SalePrice = sale,
+                        Pages = pages,
+                        Genre = textBoxGenre.Text,
+                        PublishDate = dateTimePicker1.Value.Date,
+                        Sequel = i,
+                        BookCoverDir = dir,
+                        Publishers = publishers,
+                        Authors = authors
+                    });
+                    db.SaveChanges();
+                }
+                else
+                {
+                    var editBook = db.Books.FirstOrDefault(b => b.ID == _book.ID);
+                    editBook.Title = textBoxTitle.Text;
+                    editBook.PrimeCost = prime;
+                    editBook.SalePrice = sale;
+                    editBook.Pages = pages;
+                    editBook.Genre = textBoxGenre.Text;
+                    editBook.PublishDate = dateTimePicker1.Value.Date;
+                    editBook.Sequel = i;
+                    editBook.BookCoverDir = dir;
+
+                    db.Books.AddOrUpdate(editBook);
+                    db.SaveChanges();
+
+                }
             }
 
             ClearText();
