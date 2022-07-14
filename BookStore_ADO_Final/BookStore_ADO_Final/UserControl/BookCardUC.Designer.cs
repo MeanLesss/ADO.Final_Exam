@@ -41,9 +41,9 @@
             this.iconPictureBoxBookCover.IconColor = System.Drawing.Color.Lime;
             this.iconPictureBoxBookCover.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPictureBoxBookCover.IconSize = 289;
-            this.iconPictureBoxBookCover.Location = new System.Drawing.Point(14, 17);
+            this.iconPictureBoxBookCover.Location = new System.Drawing.Point(3, 3);
             this.iconPictureBoxBookCover.Name = "iconPictureBoxBookCover";
-            this.iconPictureBoxBookCover.Size = new System.Drawing.Size(296, 289);
+            this.iconPictureBoxBookCover.Size = new System.Drawing.Size(319, 289);
             this.iconPictureBoxBookCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconPictureBoxBookCover.TabIndex = 0;
             this.iconPictureBoxBookCover.TabStop = false;

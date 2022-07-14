@@ -37,6 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.iconButtonSearch = new FontAwesome.Sharp.IconButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -70,9 +72,9 @@
             // 
             // panelBookInfo
             // 
-            this.panelBookInfo.Location = new System.Drawing.Point(433, 178);
+            this.panelBookInfo.Location = new System.Drawing.Point(458, 178);
             this.panelBookInfo.Name = "panelBookInfo";
-            this.panelBookInfo.Size = new System.Drawing.Size(905, 575);
+            this.panelBookInfo.Size = new System.Drawing.Size(858, 575);
             this.panelBookInfo.TabIndex = 25;
             // 
             // label11
@@ -88,6 +90,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.iconButtonSearch);
+            this.tabPage2.Controls.Add(this.textBoxSearch);
             this.tabPage2.Controls.Add(this.panelDisplayBooks);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -104,9 +108,9 @@
             this.panelDisplayBooks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelDisplayBooks.AutoScroll = true;
-            this.panelDisplayBooks.Location = new System.Drawing.Point(191, 98);
+            this.panelDisplayBooks.Location = new System.Drawing.Point(250, 103);
             this.panelDisplayBooks.Name = "panelDisplayBooks";
-            this.panelDisplayBooks.Size = new System.Drawing.Size(1441, 866);
+            this.panelDisplayBooks.Size = new System.Drawing.Size(1253, 866);
             this.panelDisplayBooks.TabIndex = 17;
             // 
             // label3
@@ -128,7 +132,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1829, 975);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Promotion";
+            this.tabPage3.Text = "On Sale";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // label12
@@ -141,6 +145,38 @@
             this.label12.Size = new System.Drawing.Size(133, 44);
             this.label12.TabIndex = 16;
             this.label12.Text = "Books";
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.ForeColor = System.Drawing.Color.LightGray;
+            this.textBoxSearch.Location = new System.Drawing.Point(559, 22);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(525, 35);
+            this.textBoxSearch.TabIndex = 18;
+            this.textBoxSearch.Text = "Title, Author, Genre";
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            this.textBoxSearch.Enter += new System.EventHandler(this.textBoxSearch_Enter);
+            this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_Leave);
+            // 
+            // iconButtonSearch
+            // 
+            this.iconButtonSearch.BackColor = System.Drawing.Color.Lime;
+            this.iconButtonSearch.FlatAppearance.BorderSize = 0;
+            this.iconButtonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.iconButtonSearch.IconColor = System.Drawing.Color.Black;
+            this.iconButtonSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonSearch.IconSize = 28;
+            this.iconButtonSearch.Location = new System.Drawing.Point(1109, 23);
+            this.iconButtonSearch.Name = "iconButtonSearch";
+            this.iconButtonSearch.Size = new System.Drawing.Size(102, 34);
+            this.iconButtonSearch.TabIndex = 19;
+            this.iconButtonSearch.Text = "Search";
+            this.iconButtonSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonSearch.UseVisualStyleBackColor = false;
+            this.iconButtonSearch.Click += new System.EventHandler(this.iconButtonSearch_Click);
             // 
             // BooksUC
             // 
@@ -172,5 +208,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.FlowLayoutPanel panelDisplayBooks;
         private System.Windows.Forms.Panel panelBookInfo;
+        private FontAwesome.Sharp.IconButton iconButtonSearch;
+        private System.Windows.Forms.TextBox textBoxSearch;
     }
 }
