@@ -49,6 +49,7 @@ namespace BookStore_ADO_Final.UserControl
 
         private void tabPage2_Enter(object sender, EventArgs e)
         {
+            panelDisplayBooks.Controls.Clear();
             using(var db = new DataContext())
             {
                 var books = db.Books.ToList();
@@ -61,10 +62,7 @@ namespace BookStore_ADO_Final.UserControl
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            using (var db = new DataContext())
-            {
-
-            }
+           
         }
 
         private void textBoxSearch_Enter(object sender, EventArgs e)
