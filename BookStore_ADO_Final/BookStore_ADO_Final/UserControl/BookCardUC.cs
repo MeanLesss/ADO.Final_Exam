@@ -32,8 +32,12 @@ namespace BookStore_ADO_Final.UserControl
 
         private void BookCardUC_Load(object sender, EventArgs e)
         {
-            iconPictureBoxBookCover.Image = Image.FromFile(_book.BookCoverDir);
-            textBoxTitle.Text = _book.Title;
+            if (!(_book is null))
+            {
+                iconPictureBoxBookCover.Image = Image.FromFile(_book.BookCoverDir);
+                textBoxTitle.Text = _book.Title;
+            }
+           
         }
     }
 }

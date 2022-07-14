@@ -105,6 +105,7 @@
             this.iconButtonPublishers.Text = "Publishers";
             this.iconButtonPublishers.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButtonPublishers.UseVisualStyleBackColor = false;
+            this.iconButtonPublishers.Click += new System.EventHandler(this.iconButtonPublishers_Click);
             // 
             // iconButtonAuthors
             // 
@@ -146,6 +147,7 @@
             this.iconButtonDashboard.Text = "Dashboard";
             this.iconButtonDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButtonDashboard.UseVisualStyleBackColor = false;
+            this.iconButtonDashboard.Click += new System.EventHandler(this.iconButtonDashboard_Click);
             // 
             // iconButtonSellers
             // 
