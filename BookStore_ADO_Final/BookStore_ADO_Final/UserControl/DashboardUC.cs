@@ -23,14 +23,17 @@ namespace BookStore_ADO_Final.UserControl
         {
             using (var db = new DataContext())
             {
+                //New release book
                 for (int i = 0; i < 15; i++)
                 {
                     panelNewRelease.Controls.Add(new BookCardUC());
                 }
+                //Best seller display
                 for (int i = 0; i < 15; i++)
                 {
                     panelBestSeller.Controls.Add(new BookCardUC());
                 }
+                //popular genre display
                 for (int i = 0; i < 15; i++)
                 {
                     panelPopGenre.Controls.Add(new BookCardUC());
@@ -38,23 +41,47 @@ namespace BookStore_ADO_Final.UserControl
 
                 //convert object to string to display
                 var popName = new List<string>();
-                foreach (var popAuth in GetBookCountAuthors())
+                var authors = db.Authors.ToList();
+                var popList = GetBookCountAuthors().OrderByDescending(t => t.Count).Take(10);
+                int rank = 1;
+                foreach (var popAuth in popList)
                 {
-                    popName.Add(popAuth.ID.ToString() + " " + popAuth.Firstname + " " + popAuth.Lastname);
+                    foreach (var auth in authors)
+                    {
+                        if (popAuth.AuthorID == auth.ID)
+                        {
+                            popName.Add(rank++ + " " + auth.Firstname + " " + auth.Lastname + " *Book Count = "
+                                                        + popAuth.Count);
+                        }
+                    }
                 }
+                rank = 1;
 
                 listBoxPopAuthor.DataSource = popName;
-
             }
         }
-        private List<int> GetBookCountAuthors()
+        private List<BookCountForAuthor> GetBookCountAuthors()
         {
-            var popAuthors = new List<int>();
-
+            var popAuthors = new List<BookCountForAuthor>();
+             
             //fix here
             using (var db = new DataContext())
             {
-                
+                var list = new List<BookCountForAuthor>();
+                var bookAuthors = db.BookAuthors.ToList();
+                var authors = db.Authors.ToList();
+
+                    list = (from ba in bookAuthors
+                            from a in authors
+                            where ba.Author.ID == a.ID
+                            group ba by ba.Author.ID into g
+                            select new BookCountForAuthor
+                            {
+                                AuthorID = g.Select(s => s.Author.ID).ToList()[0],
+                                Count = g.Select(s => s.Author.ID).Count()
+                            }).ToList();
+                 
+                popAuthors = list;
             }
             return popAuthors;
         }

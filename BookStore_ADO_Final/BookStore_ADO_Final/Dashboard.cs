@@ -34,6 +34,11 @@ namespace BookStore_ADO_Final
             labelUsername.Text = _user.Username;
             labelID.Text = _user.ID.ToString();
 
+            //Load Dashboard first
+            panelControl.Controls.Clear();
+            var uc = new DashboardUC();
+            uc.Dock = DockStyle.Fill;
+            panelControl.Controls.Add(uc);
 
         }
         private void ButtonLogOut_Click(object sender, EventArgs e)

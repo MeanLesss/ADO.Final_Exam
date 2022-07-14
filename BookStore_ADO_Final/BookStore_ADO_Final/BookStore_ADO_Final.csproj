@@ -85,6 +85,7 @@
     <Compile Include="Model\Author.cs" />
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\BookAuthors.cs" />
+    <Compile Include="Model\BookCountForAuthor.cs" />
     <Compile Include="Model\Publisher.cs" />
     <Compile Include="UserControl\AuthorInfoUC.cs">
       <SubType>UserControl</SubType>
