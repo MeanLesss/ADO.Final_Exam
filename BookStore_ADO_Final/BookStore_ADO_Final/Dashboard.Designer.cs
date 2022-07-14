@@ -168,6 +168,7 @@
             this.iconButtonSellers.Text = "Seller";
             this.iconButtonSellers.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButtonSellers.UseVisualStyleBackColor = false;
+            this.iconButtonSellers.Click += new System.EventHandler(this.iconButtonSellers_Click);
             // 
             // iconButtonBooks
             // 

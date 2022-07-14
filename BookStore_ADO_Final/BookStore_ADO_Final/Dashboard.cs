@@ -88,5 +88,13 @@ namespace BookStore_ADO_Final
             uc.Dock = DockStyle.Fill;
             panelControl.Controls.Add(uc);
         }
+
+        private void iconButtonSellers_Click(object sender, EventArgs e)
+        {
+            panelControl.Controls.Clear();
+            var uc = new SellerInfoUC();
+            uc.Dock = DockStyle.Fill;
+            panelControl.Controls.Add(uc);
+        }
     }
 }

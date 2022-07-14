@@ -87,6 +87,7 @@
     <Compile Include="Model\BookAuthors.cs" />
     <Compile Include="Model\BookCountForAuthor.cs" />
     <Compile Include="Model\Publisher.cs" />
+    <Compile Include="Model\Seller.cs" />
     <Compile Include="UserControl\AuthorInfoUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -134,6 +135,18 @@
     </Compile>
     <Compile Include="UserControl\PublisherUC.Designer.cs">
       <DependentUpon>PublisherUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SellerInfoUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\SellerInfoUC.Designer.cs">
+      <DependentUpon>SellerInfoUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\SellerUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\SellerUC.Designer.cs">
+      <DependentUpon>SellerUC.cs</DependentUpon>
     </Compile>
     <Compile Include="WelcomeForm.cs">
       <SubType>Form</SubType>
@@ -189,6 +202,9 @@
     <EmbeddedResource Include="UserControl\PublisherUC.resx">
       <DependentUpon>PublisherUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\SellerInfoUC.resx">
+      <DependentUpon>SellerInfoUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WelcomeForm.resx">
       <DependentUpon>WelcomeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +240,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="BookCover\default.png" />
+    <Content Include="README.txt" />
     <Content Include="UserImage\default.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

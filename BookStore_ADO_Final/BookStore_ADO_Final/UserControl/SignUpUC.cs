@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Migrations;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,41 @@ namespace BookStore_ADO_Final
         private Panel _panel;
         private FileInfo fileInfo = null;
 
+        private string _role = null;
+        private User _user = null;
+        private bool _update = false;
+
         public SignUpUC()
         {
             InitializeComponent();
+        }
+        public SignUpUC(string Role)
+        {
+            InitializeComponent();
+            _role = Role;
+            if (_panel is null)
+            {
+                iconButtonCancel.Visible = false;
+            }
+        } 
+        public SignUpUC(User seller,string Role,bool update)
+        {
+            InitializeComponent();
+            _role = Role;
+            _user = seller;
+            _update = update;
+
+            textBoxUsername.Text = _user.Username;
+            textBoxPass.Text = _user.Password;
+            textBoxEmail.Text = _user.Email;
+            textBoxPhone.Text = _user.Phone;
+            iconPictureBoxUser.Image = Image.FromFile(_user.PhotoDir);
+            iconButtonSignUp.Text = "Update";
+            if (_panel is null)
+            {
+                iconButtonCancel.Visible = false;
+            }
+
         }
         public SignUpUC(Form form,Panel panel)
         {
@@ -35,8 +68,11 @@ namespace BookStore_ADO_Final
 
         private void iconButtonCancel_Click(object sender, EventArgs e)
         {
-            _panel.Controls.Clear();
-            _panel.Controls.Add(new LogInUC(_form,_panel));
+            if (!(_panel is null))
+            {
+                _panel.Controls.Clear();
+                _panel.Controls.Add(new LogInUC(_form, _panel));
+            }
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
@@ -65,42 +101,102 @@ namespace BookStore_ADO_Final
             {
                 using (DataContext db = new DataContext())
                 {
-                    User user = new User();
-                    user.Username = textBoxUsername.Text;
-                    user.Password = textBoxPass.Text;
-                    user.Phone = textBoxPhone.Text;
-                    user.Email = textBoxEmail.Text;
-                    user.Role = "Admin";
-
-                    if (fileInfo is null)
+                    if (_update is false)
                     {
-                        fileInfo = new FileInfo(PHOTODIR + "default.png");
-                        user.PhotoDir = PHOTODIR + fileInfo.Name;
-                        db.Users.Add(user);
-                        db.SaveChanges();
-                        MessageBox.Show("Admin Created!");
-                        _panel.Controls.Clear();
-                        _panel.Controls.Add(new LogInUC(_form,_panel));
-                        return;
-                    }
-                    else
-                    {
-                        var name = fileInfo.Name;
-                        if (Directory.Exists(PHOTODIR + name))
+                        User user = new User();
+                        user.Username = textBoxUsername.Text;
+                        user.Password = textBoxPass.Text;
+                        user.Phone = textBoxPhone.Text;
+                        user.Email = textBoxEmail.Text;
+                        if (!(_role is null))
                         {
-                            user.PhotoDir = PHOTODIR + fileInfo.Name;
+                            user.Role = _role;
                         }
                         else
                         {
-                            File.Copy(fileInfo.FullName, PHOTODIR + fileInfo.Name, true);
-                            user.PhotoDir = PHOTODIR + fileInfo.Name;
+                            user.Role = "Admin";
                         }
 
-                        db.Users.Add(user);
-                        db.SaveChanges();
-                        MessageBox.Show("Admin Created!");
-                        _panel.Controls.Clear();
-                        _panel.Controls.Add(new LogInUC(_form,_panel));
+                        if (fileInfo is null)
+                        {
+                            fileInfo = new FileInfo(PHOTODIR + "default.png");
+                            user.PhotoDir = PHOTODIR + fileInfo.Name;
+                            db.Users.Add(user);
+                            db.SaveChanges();
+                            MessageBox.Show("User Created!");
+                            if (!(_panel is null))
+                            {
+                                _panel.Controls.Clear();
+                                _panel.Controls.Add(new LogInUC(_form, _panel));
+                            }
+
+                            return;
+                        }
+                        else
+                        {
+                            var name = fileInfo.Name;
+                            if (Directory.Exists(PHOTODIR + name))
+                            {
+                                user.PhotoDir = PHOTODIR + fileInfo.Name;
+                            }
+                            else
+                            {
+                                File.Copy(fileInfo.FullName, PHOTODIR + fileInfo.Name, true);
+                                user.PhotoDir = PHOTODIR + fileInfo.Name;
+                            }
+
+                            db.Users.Add(user);
+                            db.SaveChanges();
+                            MessageBox.Show("user Created!");
+                            if (!(_panel is null))
+                            {
+                                _panel.Controls.Clear();
+                                _panel.Controls.Add(new LogInUC(_form, _panel));
+                            }
+                        }
+                    }
+                    else
+                    {
+                        User user = db.Users.FirstOrDefault(u => u.ID.Equals(_user.ID));
+                        user.Username = textBoxUsername.Text;
+                        user.Password = textBoxPass.Text;
+                        user.Phone = textBoxPhone.Text;
+                        user.Email = textBoxEmail.Text;
+                        if (!(_role is null))
+                        {
+                            user.Role = _role;
+                        }
+                        else
+                        {
+                            user.Role = "Admin";
+                        }
+
+                        if (fileInfo is null)
+                        {
+                            fileInfo = new FileInfo(PHOTODIR + "default.png");
+                            user.PhotoDir = PHOTODIR + fileInfo.Name;
+                            db.Users.AddOrUpdate(user);
+                            db.SaveChanges();
+                            MessageBox.Show("User Created!");
+                            return;
+                        }
+                        else
+                        {
+                            var name = fileInfo.Name;
+                            if (Directory.Exists(PHOTODIR + name))
+                            {
+                                user.PhotoDir = PHOTODIR + fileInfo.Name;
+                            }
+                            else
+                            {
+                                File.Copy(fileInfo.FullName, PHOTODIR + fileInfo.Name, true);
+                                user.PhotoDir = PHOTODIR + fileInfo.Name;
+                            }
+
+                            db.Users.AddOrUpdate(user);
+                            db.SaveChanges();
+                            MessageBox.Show("user Created!");
+                        }
                     }
                 }
             }
@@ -113,6 +209,12 @@ namespace BookStore_ADO_Final
 
         private void SignUpUC_Load(object sender, EventArgs e)
         {
+        }
+
+        private void SignUpUC_Leave(object sender, EventArgs e)
+        {
+            iconButtonCancel.Visible = true;
+            iconButtonSignUp.Text = "Sign up";
         }
     }
 }

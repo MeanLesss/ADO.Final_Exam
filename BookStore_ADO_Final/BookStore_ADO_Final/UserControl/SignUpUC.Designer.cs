@@ -224,6 +224,7 @@
             this.Name = "SignUpUC";
             this.Size = new System.Drawing.Size(800, 450);
             this.Load += new System.EventHandler(this.SignUpUC_Load);
+            this.Leave += new System.EventHandler(this.SignUpUC_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
