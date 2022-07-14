@@ -86,6 +86,12 @@
     <Compile Include="Model\Book.cs" />
     <Compile Include="Model\BookAuthors.cs" />
     <Compile Include="Model\Publisher.cs" />
+    <Compile Include="UserControl\AuthorInfoUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\AuthorInfoUC.Designer.cs">
+      <DependentUpon>AuthorInfoUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\AuthorUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202207140948075_BookStore.resx">
       <DependentUpon>202207140948075_BookStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\AuthorInfoUC.resx">
+      <DependentUpon>AuthorInfoUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\AuthorUC.resx">
       <DependentUpon>AuthorUC.cs</DependentUpon>

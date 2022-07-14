@@ -33,12 +33,13 @@
             this.panelBookInfo = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.iconButtonSearch = new FontAwesome.Sharp.IconButton();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panelDisplayBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.iconButtonSearch = new FontAwesome.Sharp.IconButton();
+            this.iconButtonRefresh = new FontAwesome.Sharp.IconButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -90,6 +91,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.iconButtonRefresh);
             this.tabPage2.Controls.Add(this.iconButtonSearch);
             this.tabPage2.Controls.Add(this.textBoxSearch);
             this.tabPage2.Controls.Add(this.panelDisplayBooks);
@@ -102,6 +104,38 @@
             this.tabPage2.Text = "Update";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
+            // 
+            // iconButtonSearch
+            // 
+            this.iconButtonSearch.BackColor = System.Drawing.Color.Lime;
+            this.iconButtonSearch.FlatAppearance.BorderSize = 0;
+            this.iconButtonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.iconButtonSearch.IconColor = System.Drawing.Color.Black;
+            this.iconButtonSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonSearch.IconSize = 28;
+            this.iconButtonSearch.Location = new System.Drawing.Point(1109, 23);
+            this.iconButtonSearch.Name = "iconButtonSearch";
+            this.iconButtonSearch.Size = new System.Drawing.Size(102, 34);
+            this.iconButtonSearch.TabIndex = 19;
+            this.iconButtonSearch.Text = "Search";
+            this.iconButtonSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonSearch.UseVisualStyleBackColor = false;
+            this.iconButtonSearch.Click += new System.EventHandler(this.iconButtonSearch_Click);
+            // 
+            // textBoxSearch
+            // 
+            this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearch.ForeColor = System.Drawing.Color.LightGray;
+            this.textBoxSearch.Location = new System.Drawing.Point(559, 22);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(525, 35);
+            this.textBoxSearch.TabIndex = 18;
+            this.textBoxSearch.Text = "Title, Author, Genre";
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
+            this.textBoxSearch.Enter += new System.EventHandler(this.textBoxSearch_Enter);
+            this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_Leave);
             // 
             // panelDisplayBooks
             // 
@@ -146,37 +180,20 @@
             this.label12.TabIndex = 16;
             this.label12.Text = "Books";
             // 
-            // textBoxSearch
+            // iconButtonRefresh
             // 
-            this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearch.ForeColor = System.Drawing.Color.LightGray;
-            this.textBoxSearch.Location = new System.Drawing.Point(559, 22);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(525, 35);
-            this.textBoxSearch.TabIndex = 18;
-            this.textBoxSearch.Text = "Title, Author, Genre";
-            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
-            this.textBoxSearch.Enter += new System.EventHandler(this.textBoxSearch_Enter);
-            this.textBoxSearch.Leave += new System.EventHandler(this.textBoxSearch_Leave);
-            // 
-            // iconButtonSearch
-            // 
-            this.iconButtonSearch.BackColor = System.Drawing.Color.Lime;
-            this.iconButtonSearch.FlatAppearance.BorderSize = 0;
-            this.iconButtonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonSearch.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.iconButtonSearch.IconColor = System.Drawing.Color.Black;
-            this.iconButtonSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonSearch.IconSize = 28;
-            this.iconButtonSearch.Location = new System.Drawing.Point(1109, 23);
-            this.iconButtonSearch.Name = "iconButtonSearch";
-            this.iconButtonSearch.Size = new System.Drawing.Size(102, 34);
-            this.iconButtonSearch.TabIndex = 19;
-            this.iconButtonSearch.Text = "Search";
-            this.iconButtonSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButtonSearch.UseVisualStyleBackColor = false;
-            this.iconButtonSearch.Click += new System.EventHandler(this.iconButtonSearch_Click);
+            this.iconButtonRefresh.FlatAppearance.BorderSize = 0;
+            this.iconButtonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonRefresh.IconChar = FontAwesome.Sharp.IconChar.UndoAlt;
+            this.iconButtonRefresh.IconColor = System.Drawing.Color.Lime;
+            this.iconButtonRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonRefresh.IconSize = 28;
+            this.iconButtonRefresh.Location = new System.Drawing.Point(500, 26);
+            this.iconButtonRefresh.Name = "iconButtonRefresh";
+            this.iconButtonRefresh.Size = new System.Drawing.Size(44, 34);
+            this.iconButtonRefresh.TabIndex = 20;
+            this.iconButtonRefresh.UseVisualStyleBackColor = true;
+            this.iconButtonRefresh.Click += new System.EventHandler(this.iconButtonRefresh_Click);
             // 
             // BooksUC
             // 
@@ -210,5 +227,6 @@
         private System.Windows.Forms.Panel panelBookInfo;
         private FontAwesome.Sharp.IconButton iconButtonSearch;
         private System.Windows.Forms.TextBox textBoxSearch;
+        private FontAwesome.Sharp.IconButton iconButtonRefresh;
     }
 }

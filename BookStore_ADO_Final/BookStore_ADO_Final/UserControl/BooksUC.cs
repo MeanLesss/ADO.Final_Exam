@@ -84,16 +84,8 @@ namespace BookStore_ADO_Final.UserControl
 
                 var bookAuth = GetBooks();
 
-                if(!(bookAuth is null))
-                {
-
-                    panelDisplayBooks.Controls.Clear();
-                    foreach (var book in bookAuth)
-                    {
-                        panelDisplayBooks.Controls.Add(new BookCardUC(book));
-                    }
-                    return;
-                }
+                //fix here
+                 searchBooks = bookAuth;
 
                 foreach (var book in db.Books.ToList())
                 {
@@ -104,6 +96,7 @@ namespace BookStore_ADO_Final.UserControl
                         searchBooks.Add(book);
                     }
                 }
+               
 
                 if (!(searchBooks is null))
                 {
@@ -126,13 +119,11 @@ namespace BookStore_ADO_Final.UserControl
             var books = db.Books.ToList();
             
 
-            return (from a in authors
+            return (from a in authors   //get author from the search box
                     where (a.Firstname + " " + a.Lastname).ToLower() == textBoxSearch.Text.ToLower()
-
-                    from b in bookAuthors
+                    from b in bookAuthors  // search author from the BookAuthor table
                     where b.Author.ID == a.ID
-
-                    from book in books
+                    from book in books //get book by id from BookAuthor table
                     where book.ID == b.Book.ID
                     select new Book
                     {
@@ -148,8 +139,23 @@ namespace BookStore_ADO_Final.UserControl
                         Title = book.Title
                     }).ToList(); 
         }
+
+        private void iconButtonRefresh_Click(object sender, EventArgs e)
+        {
+            panelDisplayBooks.Controls.Clear();
+            using (var db = new DataContext())
+            {
+                var books = db.Books.ToList();
+                foreach (var book in books)
+                {
+                    panelDisplayBooks.Controls.Add(new BookCardUC(book));
+                }
+            }
+        }
     }
 }
+
+//query to select search from from author
 /*SELECT * FROM Books AS b
 INNER JOIN Authors AS a
 ON a.Firstname + ' ' + a.Lastname = 'Gerald Helem'

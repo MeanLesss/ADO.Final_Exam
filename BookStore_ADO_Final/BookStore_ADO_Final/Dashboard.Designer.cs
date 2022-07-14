@@ -30,6 +30,8 @@
         {
             this.ButtonLogOut = new FontAwesome.Sharp.IconButton();
             this.panelOption = new System.Windows.Forms.Panel();
+            this.iconButtonPublishers = new FontAwesome.Sharp.IconButton();
+            this.iconButtonAuthors = new FontAwesome.Sharp.IconButton();
             this.iconButtonDashboard = new FontAwesome.Sharp.IconButton();
             this.iconButtonSellers = new FontAwesome.Sharp.IconButton();
             this.iconButtonBooks = new FontAwesome.Sharp.IconButton();
@@ -41,8 +43,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.iconPictureBoxUser = new FontAwesome.Sharp.IconPictureBox();
             this.panelControl = new System.Windows.Forms.Panel();
-            this.iconButtonAuthors = new FontAwesome.Sharp.IconButton();
-            this.iconButtonPublishers = new FontAwesome.Sharp.IconButton();
             this.panelOption.SuspendLayout();
             this.panelUserbanner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUser)).BeginInit();
@@ -85,6 +85,47 @@
             this.panelOption.Name = "panelOption";
             this.panelOption.Size = new System.Drawing.Size(313, 558);
             this.panelOption.TabIndex = 1;
+            // 
+            // iconButtonPublishers
+            // 
+            this.iconButtonPublishers.BackColor = System.Drawing.Color.Lime;
+            this.iconButtonPublishers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButtonPublishers.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.iconButtonPublishers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonPublishers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonPublishers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonPublishers.IconChar = FontAwesome.Sharp.IconChar.Industry;
+            this.iconButtonPublishers.IconColor = System.Drawing.Color.Black;
+            this.iconButtonPublishers.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonPublishers.IconSize = 28;
+            this.iconButtonPublishers.Location = new System.Drawing.Point(0, 278);
+            this.iconButtonPublishers.Name = "iconButtonPublishers";
+            this.iconButtonPublishers.Size = new System.Drawing.Size(313, 45);
+            this.iconButtonPublishers.TabIndex = 6;
+            this.iconButtonPublishers.Text = "Publishers";
+            this.iconButtonPublishers.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.iconButtonPublishers.UseVisualStyleBackColor = false;
+            // 
+            // iconButtonAuthors
+            // 
+            this.iconButtonAuthors.BackColor = System.Drawing.Color.Lime;
+            this.iconButtonAuthors.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButtonAuthors.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.iconButtonAuthors.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonAuthors.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonAuthors.IconChar = FontAwesome.Sharp.IconChar.FeatherAlt;
+            this.iconButtonAuthors.IconColor = System.Drawing.Color.Black;
+            this.iconButtonAuthors.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonAuthors.IconSize = 28;
+            this.iconButtonAuthors.Location = new System.Drawing.Point(0, 233);
+            this.iconButtonAuthors.Name = "iconButtonAuthors";
+            this.iconButtonAuthors.Size = new System.Drawing.Size(313, 45);
+            this.iconButtonAuthors.TabIndex = 5;
+            this.iconButtonAuthors.Text = "Auhtors";
+            this.iconButtonAuthors.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.iconButtonAuthors.UseVisualStyleBackColor = false;
+            this.iconButtonAuthors.Click += new System.EventHandler(this.iconButtonAuthors_Click);
             // 
             // iconButtonDashboard
             // 
@@ -244,46 +285,6 @@
             this.panelControl.Name = "panelControl";
             this.panelControl.Size = new System.Drawing.Size(910, 558);
             this.panelControl.TabIndex = 2;
-            // 
-            // iconButtonAuthors
-            // 
-            this.iconButtonAuthors.BackColor = System.Drawing.Color.Lime;
-            this.iconButtonAuthors.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButtonAuthors.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.iconButtonAuthors.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButtonAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonAuthors.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonAuthors.IconChar = FontAwesome.Sharp.IconChar.FeatherAlt;
-            this.iconButtonAuthors.IconColor = System.Drawing.Color.Black;
-            this.iconButtonAuthors.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonAuthors.IconSize = 28;
-            this.iconButtonAuthors.Location = new System.Drawing.Point(0, 233);
-            this.iconButtonAuthors.Name = "iconButtonAuthors";
-            this.iconButtonAuthors.Size = new System.Drawing.Size(313, 45);
-            this.iconButtonAuthors.TabIndex = 5;
-            this.iconButtonAuthors.Text = "Auhtors";
-            this.iconButtonAuthors.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.iconButtonAuthors.UseVisualStyleBackColor = false;
-            // 
-            // iconButtonPublishers
-            // 
-            this.iconButtonPublishers.BackColor = System.Drawing.Color.Lime;
-            this.iconButtonPublishers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButtonPublishers.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.iconButtonPublishers.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButtonPublishers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonPublishers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonPublishers.IconChar = FontAwesome.Sharp.IconChar.Industry;
-            this.iconButtonPublishers.IconColor = System.Drawing.Color.Black;
-            this.iconButtonPublishers.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonPublishers.IconSize = 28;
-            this.iconButtonPublishers.Location = new System.Drawing.Point(0, 278);
-            this.iconButtonPublishers.Name = "iconButtonPublishers";
-            this.iconButtonPublishers.Size = new System.Drawing.Size(313, 45);
-            this.iconButtonPublishers.TabIndex = 6;
-            this.iconButtonPublishers.Text = "Publishers";
-            this.iconButtonPublishers.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.iconButtonPublishers.UseVisualStyleBackColor = false;
             // 
             // Dashboard
             // 
