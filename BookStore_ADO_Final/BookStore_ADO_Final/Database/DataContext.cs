@@ -14,6 +14,7 @@ namespace BookStore_ADO_Final.Database
         public DbSet<Author> Authors { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
 
+        public DbSet<BookAuthors> BookAuthors { get; set; }
     }
     /*protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {

@@ -17,7 +17,7 @@ namespace BookStore_ADO_Final.Model
         public bool Sequel { get; set; }
         //public virtual Publisher Publish { get; set; }
         public virtual ICollection<Publisher> Publishers { get; set; }
-        public virtual ICollection<Author> Authors { get; set; }
+        /*public virtual ICollection<Author> Authors { get; set; }*/
         
     }
 }

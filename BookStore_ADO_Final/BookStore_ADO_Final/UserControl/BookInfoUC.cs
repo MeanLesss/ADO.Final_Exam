@@ -124,7 +124,7 @@ namespace BookStore_ADO_Final.UserControl
 
                 if (_update is false)
                 {
-                    db.Books.Add(new Book
+                    var book = new Book
                     {
                         Title = textBoxTitle.Text,
                         PrimeCost = prime,
@@ -135,8 +135,15 @@ namespace BookStore_ADO_Final.UserControl
                         Sequel = i,
                         BookCoverDir = dir,
                         Publishers = publishers,
-                        Authors = authors
-                    });
+                        //Authors = authors
+                    };
+                    db.Books.Add(book);
+                    var auth = new BookAuthors
+                    {
+                        Book = book,
+                        Author = author,
+                    };
+                    db.BookAuthors.Add(auth);
                     db.SaveChanges();
                 }
                 else

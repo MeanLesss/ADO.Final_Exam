@@ -80,41 +80,33 @@ namespace BookStore_ADO_Final.UserControl
 
         private void iconButtonSearch_Click(object sender, EventArgs e)
         {
-
-            ICollection<Book> books = new List<Book>();
-
             using (var db = new DataContext())
             {
-                foreach (var author in db.Authors.ToList())
+                var searchBooks = new List<Book>();
+
+                var bookAuth = GetBooks();
+
+                if(!(bookAuth is null))
                 {
-                    if ((author.Firstname + " " + author.Lastname).ToLower().Equals(textBoxSearch.Text.ToLower()))
+
+                    panelDisplayBooks.Controls.Clear();
+                    foreach (var book in bookAuth)
                     {
-                        author.Books.First().Title = author.Firstname;
+                        panelDisplayBooks.Controls.Add(new BookCardUC(book));
                     }
+                    return;
                 }
 
-          /*      var searchAuthor = db.Authors
-                    .Where(a => ())
-                    .Select(a => new Author
-                    {
-                        Firstname = a.Firstname,
-                        Lastname = a.Lastname,
-                        ID = a.ID
-                    }).ToList();*/
-
-                var searchBooks = new List<Book>();
-                /*||book.Authors.ToList().Find(a => (a.Firstname + " " + a.Lastname).Equals(textBoxSearch.Text))*/
-                foreach (var book in  db.Books.ToList())
+                foreach (var book in db.Books.ToList())
                 {
                     if (book.Title.ToLower().Equals(textBoxSearch.Text.ToLower()) ||
-                        book.Genre.ToLower().Equals(textBoxSearch.Text.ToLower()) ||
-                        book.Authors.Where(a => ((a.Firstname + " " + a.Lastname).ToLower().Equals(textBoxSearch.Text)))
-                        .Select(a => a).ToList() == book.Authors
+                        book.Genre.ToLower().Equals(textBoxSearch.Text.ToLower())
                         )
-                    {                             
+                    {
                         searchBooks.Add(book);
                     }
                 }
+
                 if (!(searchBooks is null))
                 {
                     panelDisplayBooks.Controls.Clear();
@@ -126,6 +118,37 @@ namespace BookStore_ADO_Final.UserControl
                 }
                 panelDisplayBooks.Controls.Clear();
             }
+        }
+        private List<Book> GetBooks()
+        {
+            var db = new DataContext();
+
+            var authors = db.Authors.ToList();
+            var bookAuthors = db.BookAuthors.ToList();
+            var books = db.Books.ToList();
+            
+
+            return (from a in authors
+                    where (a.Firstname + " " + a.Lastname).ToLower() == textBoxSearch.Text.ToLower()
+
+                    from b in bookAuthors
+                    where b.Author.ID == a.ID
+
+                    from book in books
+                    where book.ID == b.Book.ID
+                    select new Book
+                    {
+                        ID = book.ID,
+                        BookCoverDir = book.BookCoverDir,
+                        Genre = book.Genre,
+                        Pages = book.Pages,
+                        PrimeCost = book.PrimeCost,
+                        PublishDate = book.PublishDate,
+                        Publishers = book.Publishers,
+                        SalePrice = book.SalePrice,
+                        Sequel = book.Sequel,
+                        Title = book.Title
+                    }).ToList(); 
         }
     }
 }
