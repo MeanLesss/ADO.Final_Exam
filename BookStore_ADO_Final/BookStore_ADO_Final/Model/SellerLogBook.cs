@@ -11,6 +11,7 @@ namespace BookStore_ADO_Final.Model
         public int ID { get; set; }
         public int SoldQuantity { get; set; }
         public float TotalPrice { get; set; }
+        public DateTime ReportDate { get; set; }
         public virtual Stock Stock { get; set; }
         public virtual User Seller { get; set; }
     }

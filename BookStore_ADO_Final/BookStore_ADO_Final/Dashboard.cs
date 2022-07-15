@@ -110,10 +110,10 @@ namespace BookStore_ADO_Final
 
         private void iconButtonReport_Click(object sender, EventArgs e)
         {
-           /* panelControl.Controls.Clear();
-            var uc = ;
+            panelControl.Controls.Clear();
+            var uc = new ReportUC();
             uc.Dock = DockStyle.Fill;
-            panelControl.Controls.Add(uc);*/
+            panelControl.Controls.Add(uc);
         }
     }
 }

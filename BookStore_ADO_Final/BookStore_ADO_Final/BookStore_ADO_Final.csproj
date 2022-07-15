@@ -89,6 +89,10 @@
     <Compile Include="Migrations\202207151039128_BookStore2.designer.cs">
       <DependentUpon>202207151039128_BookStore2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202207151123500_BookStore3.cs" />
+    <Compile Include="Migrations\202207151123500_BookStore3.designer.cs">
+      <DependentUpon>202207151123500_BookStore3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Author.cs" />
     <Compile Include="Model\Book.cs" />
@@ -206,6 +210,9 @@
     <EmbeddedResource Include="Migrations\202207151039128_BookStore2.resx">
       <DependentUpon>202207151039128_BookStore2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207151123500_BookStore3.resx">
+      <DependentUpon>202207151123500_BookStore3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SellerDashboard.resx">
       <DependentUpon>SellerDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\PublisherUC.resx">
       <DependentUpon>PublisherUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\ReportUC.resx">
+      <DependentUpon>ReportUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\SellerInfoUC.resx">
       <DependentUpon>SellerInfoUC.cs</DependentUpon>

@@ -119,12 +119,14 @@ namespace BookStore_ADO_Final.UserControl
                         var stock = db.Stocks.FirstOrDefault(x => x.Book.ID == _book.ID);
                         stock.BookQuantity = stock.BookQuantity - quantity;
                         db.Stocks.AddOrUpdate(stock);
-                        //var sellerLog = db.SellerLogBooks.FirstOrDefault(x => x.Stock.ID == stock.ID);
-                        var sellerLog = new SellerLogBook();
+
+                        //update sellerLog (report)
+                         var sellerLog = new SellerLogBook();
                         sellerLog.Seller = _seller;
                         sellerLog.Stock = stock;
                         sellerLog.SoldQuantity = quantity;
                         sellerLog.TotalPrice = float.Parse(labelPrice.Text) * quantity;
+                        sellerLog.ReportDate = DateTime.Now.Date;
 
                         db.SellerLogBooks.AddOrUpdate(sellerLog);
                         db.SaveChanges();
