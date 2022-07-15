@@ -145,6 +145,14 @@ namespace BookStore_ADO_Final.UserControl
                     };
                     db.BookAuthors.Add(auth);
                     db.SaveChanges();
+
+                    var stock = new Stock
+                    {
+                        Book = book,
+                        BookQuantity = 0
+                    };
+                    db.Stocks.Add(stock);
+                    db.SaveChanges();
                 }
                 else
                 {

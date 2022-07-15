@@ -112,6 +112,7 @@
             this.iconButtonSearch.Text = "Search";
             this.iconButtonSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.iconButtonSearch.UseVisualStyleBackColor = false;
+            this.iconButtonSearch.Click += new System.EventHandler(this.iconButtonSearch_Click);
             // 
             // textBoxSearch
             // 

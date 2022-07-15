@@ -81,6 +81,10 @@
     <Compile Include="Migrations\202207140948075_BookStore.designer.cs">
       <DependentUpon>202207140948075_BookStore.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202207150740166_BookStore1.cs" />
+    <Compile Include="Migrations\202207150740166_BookStore1.designer.cs">
+      <DependentUpon>202207150740166_BookStore1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Author.cs" />
     <Compile Include="Model\Book.cs" />
@@ -88,6 +92,14 @@
     <Compile Include="Model\BookCountForAuthor.cs" />
     <Compile Include="Model\Publisher.cs" />
     <Compile Include="Model\Seller.cs" />
+    <Compile Include="Model\SellerLogBook.cs" />
+    <Compile Include="Model\Stock.cs" />
+    <Compile Include="SellerDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SellerDashboard.Designer.cs">
+      <DependentUpon>SellerDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\AuthorInfoUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,6 +123,12 @@
     </Compile>
     <Compile Include="UserControl\BookInfoUC.Designer.cs">
       <DependentUpon>BookInfoUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\BookStockCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\BookStockCard.Designer.cs">
+      <DependentUpon>BookStockCard.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\BooksUC.cs">
       <SubType>UserControl</SubType>
@@ -142,12 +160,6 @@
     <Compile Include="UserControl\SellerInfoUC.Designer.cs">
       <DependentUpon>SellerInfoUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\SellerUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControl\SellerUC.Designer.cs">
-      <DependentUpon>SellerUC.cs</DependentUpon>
-    </Compile>
     <Compile Include="WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +190,12 @@
     <EmbeddedResource Include="Migrations\202207140948075_BookStore.resx">
       <DependentUpon>202207140948075_BookStore.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202207150740166_BookStore1.resx">
+      <DependentUpon>202207150740166_BookStore1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SellerDashboard.resx">
+      <DependentUpon>SellerDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl\AuthorInfoUC.resx">
       <DependentUpon>AuthorInfoUC.cs</DependentUpon>
     </EmbeddedResource>
@@ -189,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\BookInfoUC.resx">
       <DependentUpon>BookInfoUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\BookStockCard.resx">
+      <DependentUpon>BookStockCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\BooksUC.resx">
       <DependentUpon>BooksUC.cs</DependentUpon>

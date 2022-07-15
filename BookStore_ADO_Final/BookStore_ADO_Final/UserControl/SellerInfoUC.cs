@@ -75,5 +75,30 @@ namespace BookStore_ADO_Final.UserControl
                 new AddPopUP(new SignUpUC(seller,"Seller", true)).Show();
             }
         }
+
+        private void iconButtonSearch_Click(object sender, EventArgs e)
+        {
+            using (var db = new DataContext())
+            {
+                var foundPub = new List<string>();
+                var searchList = db.Users.ToList();
+
+                foreach (var seller in searchList)
+                {
+                    if ((seller.Username).ToLower()
+                        .Equals(textBoxSearch.Text.ToLower()) && seller.Role == "Seller")
+                    {
+                        foundPub.Add(seller.ID.ToString() + "-" + seller.Username + "/" + seller.Password);
+                    }
+                }
+                if (!(foundPub is null))
+                {
+                    foreach (var item in foundPub)
+                    {
+                        listBoxSeller.DataSource = foundPub;
+                    }
+                }
+            }
+        }
     }
 }

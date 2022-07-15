@@ -47,6 +47,7 @@ namespace BookStore_ADO_Final.UserControl
             panelBookInfo.Controls.Add(new BookInfoUC());
         }
 
+        ///Update tab
         private void tabPage2_Enter(object sender, EventArgs e)
         {
             panelDisplayBooks.Controls.Clear();
@@ -120,7 +121,8 @@ namespace BookStore_ADO_Final.UserControl
             
 
             return (from a in authors   //get author from the search box
-                    where (a.Firstname + " " + a.Lastname).ToLower() == textBoxSearch.Text.ToLower()
+                    where (a.Firstname + " " + a.Lastname).ToLower().Equals(textBoxSearch.Text.ToLower()) ||
+                            (a.Firstname + " " + a.Lastname).ToLower().Equals(textBoxSearchStock.Text.ToLower())
                     from b in bookAuthors  // search author from the BookAuthor table
                     where b.Author.ID == a.ID
                     from book in books //get book by id from BookAuthor table
@@ -151,6 +153,76 @@ namespace BookStore_ADO_Final.UserControl
                     panelDisplayBooks.Controls.Add(new BookCardUC(book));
                 }
             }
+        }
+
+
+        ///On sale tab
+        private void tabPage3_Enter(object sender, EventArgs e)
+        {
+            panelOnSale.Controls.Clear();
+            using (var db = new DataContext())
+            {
+                var books = db.Books.ToList();
+                foreach (var book in books)
+                {
+                    panelOnSale.Controls.Add(new BookStockCard(book,"Save"));
+                }
+            }
+        }
+
+        private void iconButtonRefreshSale_Click(object sender, EventArgs e)
+        {
+            panelOnSale.Controls.Clear();
+            using (var db = new DataContext())
+            {
+                var books = db.Books.ToList();
+                foreach (var book in books)
+                {
+                    panelOnSale.Controls.Add(new BookCardUC(book));
+                }
+            }
+        }
+
+        private void iconButtonSearchStock_Click(object sender, EventArgs e)
+        {
+            using (var db = new DataContext())
+            {
+                var searchBooks = new List<Book>();
+
+                var bookAuth = GetBooks();
+
+                searchBooks = bookAuth;
+
+                foreach (var book in db.Books.ToList())
+                {
+                    if (book.Title.ToLower().Equals(textBoxSearchStock.Text.ToLower()) ||
+                        book.Genre.ToLower().Equals(textBoxSearchStock.Text.ToLower())
+                        )
+                    {
+                        searchBooks.Add(book);
+                    }
+                }
+                if (!(searchBooks is null))
+                {
+                    panelOnSale.Controls.Clear();
+                    foreach (var book in searchBooks)
+                    {
+                        panelOnSale.Controls.Add(new BookCardUC(book));
+                    }
+                    return;
+                }
+                panelOnSale.Controls.Clear();
+            }
+        }
+
+        private void textBoxSearchStock_Click(object sender, EventArgs e)
+        {
+            textBoxSearchStock.Clear();
+        }
+
+        private void iconButtonAddStock_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

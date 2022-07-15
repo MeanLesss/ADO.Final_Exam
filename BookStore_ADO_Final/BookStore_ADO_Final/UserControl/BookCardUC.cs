@@ -37,7 +37,6 @@ namespace BookStore_ADO_Final.UserControl
                 iconPictureBoxBookCover.Image = Image.FromFile(_book.BookCoverDir);
                 textBoxTitle.Text = _book.Title;
             }
-           
         }
     }
 }

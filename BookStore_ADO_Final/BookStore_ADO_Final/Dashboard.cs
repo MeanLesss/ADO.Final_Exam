@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BookStore_ADO_Final.Database;
 using BookStore_ADO_Final.Model;
 using BookStore_ADO_Final.UserControl;
 
@@ -95,6 +96,16 @@ namespace BookStore_ADO_Final
             var uc = new SellerInfoUC();
             uc.Dock = DockStyle.Fill;
             panelControl.Controls.Add(uc);
+        }
+
+        private void iconButtonUserConf_Click(object sender, EventArgs e)
+        {
+            using (var db = new DataContext())
+            {
+                var admin = db.Users.FirstOrDefault(z => z.ID == _user.ID);
+
+                new AddPopUP(new SignUpUC(admin, "Admin", true)).Show();
+            }
         }
     }
 }

@@ -101,7 +101,7 @@
             this.iconButtonAddPub.IconColor = System.Drawing.Color.Lime;
             this.iconButtonAddPub.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButtonAddPub.IconSize = 28;
-            this.iconButtonAddPub.Location = new System.Drawing.Point(357, 191);
+            this.iconButtonAddPub.Location = new System.Drawing.Point(357, 198);
             this.iconButtonAddPub.Name = "iconButtonAddPub";
             this.iconButtonAddPub.Size = new System.Drawing.Size(44, 34);
             this.iconButtonAddPub.TabIndex = 25;

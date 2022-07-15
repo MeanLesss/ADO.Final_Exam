@@ -33,13 +33,17 @@
             this.panelBookInfo = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.iconButtonRefresh = new FontAwesome.Sharp.IconButton();
             this.iconButtonSearch = new FontAwesome.Sharp.IconButton();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.panelDisplayBooks = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label12 = new System.Windows.Forms.Label();
-            this.iconButtonRefresh = new FontAwesome.Sharp.IconButton();
+            this.panelOnSale = new System.Windows.Forms.FlowLayoutPanel();
+            this.iconButtonRefreshSale = new FontAwesome.Sharp.IconButton();
+            this.iconButtonSearchStock = new FontAwesome.Sharp.IconButton();
+            this.textBoxSearchStock = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -105,6 +109,21 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 
+            // iconButtonRefresh
+            // 
+            this.iconButtonRefresh.FlatAppearance.BorderSize = 0;
+            this.iconButtonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonRefresh.IconChar = FontAwesome.Sharp.IconChar.UndoAlt;
+            this.iconButtonRefresh.IconColor = System.Drawing.Color.Lime;
+            this.iconButtonRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonRefresh.IconSize = 28;
+            this.iconButtonRefresh.Location = new System.Drawing.Point(500, 26);
+            this.iconButtonRefresh.Name = "iconButtonRefresh";
+            this.iconButtonRefresh.Size = new System.Drawing.Size(44, 34);
+            this.iconButtonRefresh.TabIndex = 20;
+            this.iconButtonRefresh.UseVisualStyleBackColor = true;
+            this.iconButtonRefresh.Click += new System.EventHandler(this.iconButtonRefresh_Click);
+            // 
             // iconButtonSearch
             // 
             this.iconButtonSearch.BackColor = System.Drawing.Color.Lime;
@@ -160,6 +179,10 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.iconButtonRefreshSale);
+            this.tabPage3.Controls.Add(this.iconButtonSearchStock);
+            this.tabPage3.Controls.Add(this.textBoxSearchStock);
+            this.tabPage3.Controls.Add(this.panelOnSale);
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -168,6 +191,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "On Sale";
             this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Enter += new System.EventHandler(this.tabPage3_Enter);
             // 
             // label12
             // 
@@ -180,20 +204,60 @@
             this.label12.TabIndex = 16;
             this.label12.Text = "Books";
             // 
-            // iconButtonRefresh
+            // panelOnSale
             // 
-            this.iconButtonRefresh.FlatAppearance.BorderSize = 0;
-            this.iconButtonRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonRefresh.IconChar = FontAwesome.Sharp.IconChar.UndoAlt;
-            this.iconButtonRefresh.IconColor = System.Drawing.Color.Lime;
-            this.iconButtonRefresh.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonRefresh.IconSize = 28;
-            this.iconButtonRefresh.Location = new System.Drawing.Point(500, 26);
-            this.iconButtonRefresh.Name = "iconButtonRefresh";
-            this.iconButtonRefresh.Size = new System.Drawing.Size(44, 34);
-            this.iconButtonRefresh.TabIndex = 20;
-            this.iconButtonRefresh.UseVisualStyleBackColor = true;
-            this.iconButtonRefresh.Click += new System.EventHandler(this.iconButtonRefresh_Click);
+            this.panelOnSale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelOnSale.AutoScroll = true;
+            this.panelOnSale.Location = new System.Drawing.Point(285, 171);
+            this.panelOnSale.Name = "panelOnSale";
+            this.panelOnSale.Size = new System.Drawing.Size(1253, 798);
+            this.panelOnSale.TabIndex = 18;
+            // 
+            // iconButtonRefreshSale
+            // 
+            this.iconButtonRefreshSale.FlatAppearance.BorderSize = 0;
+            this.iconButtonRefreshSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonRefreshSale.IconChar = FontAwesome.Sharp.IconChar.UndoAlt;
+            this.iconButtonRefreshSale.IconColor = System.Drawing.Color.Lime;
+            this.iconButtonRefreshSale.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonRefreshSale.IconSize = 28;
+            this.iconButtonRefreshSale.Location = new System.Drawing.Point(544, 92);
+            this.iconButtonRefreshSale.Name = "iconButtonRefreshSale";
+            this.iconButtonRefreshSale.Size = new System.Drawing.Size(44, 34);
+            this.iconButtonRefreshSale.TabIndex = 23;
+            this.iconButtonRefreshSale.UseVisualStyleBackColor = true;
+            this.iconButtonRefreshSale.Click += new System.EventHandler(this.iconButtonRefreshSale_Click);
+            // 
+            // iconButtonSearchStock
+            // 
+            this.iconButtonSearchStock.BackColor = System.Drawing.Color.Lime;
+            this.iconButtonSearchStock.FlatAppearance.BorderSize = 0;
+            this.iconButtonSearchStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonSearchStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonSearchStock.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.iconButtonSearchStock.IconColor = System.Drawing.Color.Black;
+            this.iconButtonSearchStock.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonSearchStock.IconSize = 28;
+            this.iconButtonSearchStock.Location = new System.Drawing.Point(1153, 89);
+            this.iconButtonSearchStock.Name = "iconButtonSearchStock";
+            this.iconButtonSearchStock.Size = new System.Drawing.Size(102, 34);
+            this.iconButtonSearchStock.TabIndex = 22;
+            this.iconButtonSearchStock.Text = "Search";
+            this.iconButtonSearchStock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonSearchStock.UseVisualStyleBackColor = false;
+            this.iconButtonSearchStock.Click += new System.EventHandler(this.iconButtonSearchStock_Click);
+            // 
+            // textBoxSearchStock
+            // 
+            this.textBoxSearchStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearchStock.ForeColor = System.Drawing.Color.LightGray;
+            this.textBoxSearchStock.Location = new System.Drawing.Point(603, 88);
+            this.textBoxSearchStock.Name = "textBoxSearchStock";
+            this.textBoxSearchStock.Size = new System.Drawing.Size(525, 35);
+            this.textBoxSearchStock.TabIndex = 21;
+            this.textBoxSearchStock.Text = "Title, Author, Genre";
+            this.textBoxSearchStock.Click += new System.EventHandler(this.textBoxSearchStock_Click);
             // 
             // BooksUC
             // 
@@ -228,5 +292,9 @@
         private FontAwesome.Sharp.IconButton iconButtonSearch;
         private System.Windows.Forms.TextBox textBoxSearch;
         private FontAwesome.Sharp.IconButton iconButtonRefresh;
+        private System.Windows.Forms.FlowLayoutPanel panelOnSale;
+        private FontAwesome.Sharp.IconButton iconButtonRefreshSale;
+        private FontAwesome.Sharp.IconButton iconButtonSearchStock;
+        private System.Windows.Forms.TextBox textBoxSearchStock;
     }
 }
