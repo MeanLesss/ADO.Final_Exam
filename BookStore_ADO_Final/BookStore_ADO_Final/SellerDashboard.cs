@@ -15,14 +15,16 @@ namespace BookStore_ADO_Final
     public partial class SellerDashboard : Form
     {
         private readonly User _user;
+        private readonly Form _form;
         public SellerDashboard()
         {
             InitializeComponent();
         }
-        public SellerDashboard(User user)
+        public SellerDashboard(User user,Form form)
         {
             InitializeComponent();
             _user = user;
+            _form = form;
         }
 
         private void iconButtonUserConf_Click(object sender, EventArgs e)
@@ -33,6 +35,12 @@ namespace BookStore_ADO_Final
 
                 new AddPopUP(new SignUpUC(admin, "Seller", true)).Show();
             }
+        }
+
+        private void ButtonLogOut_Click(object sender, EventArgs e)
+        {
+            new WelcomeForm().Show();
+            this.Dispose();
         }
     }
 }

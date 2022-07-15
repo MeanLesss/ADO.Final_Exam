@@ -188,6 +188,7 @@
             this.ButtonLogOut.Text = "Log out";
             this.ButtonLogOut.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.ButtonLogOut.UseVisualStyleBackColor = false;
+            this.ButtonLogOut.Click += new System.EventHandler(this.ButtonLogOut_Click);
             // 
             // panelControl
             // 

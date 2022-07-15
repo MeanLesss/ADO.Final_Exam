@@ -53,6 +53,12 @@ namespace BookStore_ADO_Final
                     _form.Hide();
                     return;
                 }
+                else
+                {
+                    new SellerDashboard(user, _form).Show();
+                    _form.Hide();
+                    return;
+                }
                 //different dashboard
 
             }
