@@ -85,7 +85,6 @@ namespace BookStore_ADO_Final.UserControl
 
                 var bookAuth = GetBooks();
 
-                //fix here
                  searchBooks = bookAuth;
 
                 foreach (var book in db.Books.ToList())
@@ -97,8 +96,6 @@ namespace BookStore_ADO_Final.UserControl
                         searchBooks.Add(book);
                     }
                 }
-               
-
                 if (!(searchBooks is null))
                 {
                     panelDisplayBooks.Controls.Clear();

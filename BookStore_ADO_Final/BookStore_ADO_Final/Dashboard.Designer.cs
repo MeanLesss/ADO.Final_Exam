@@ -43,6 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.iconPictureBoxUser = new FontAwesome.Sharp.IconPictureBox();
             this.panelControl = new System.Windows.Forms.Panel();
+            this.iconButtonReport = new FontAwesome.Sharp.IconButton();
             this.panelOption.SuspendLayout();
             this.panelUserbanner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUser)).BeginInit();
@@ -73,6 +74,7 @@
             // panelOption
             // 
             this.panelOption.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelOption.Controls.Add(this.iconButtonReport);
             this.panelOption.Controls.Add(this.iconButtonPublishers);
             this.panelOption.Controls.Add(this.iconButtonAuthors);
             this.panelOption.Controls.Add(this.iconButtonDashboard);
@@ -290,6 +292,27 @@
             this.panelControl.Size = new System.Drawing.Size(910, 558);
             this.panelControl.TabIndex = 2;
             // 
+            // iconButtonReport
+            // 
+            this.iconButtonReport.BackColor = System.Drawing.Color.Lime;
+            this.iconButtonReport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButtonReport.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.iconButtonReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButtonReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonReport.IconChar = FontAwesome.Sharp.IconChar.ReplyAll;
+            this.iconButtonReport.IconColor = System.Drawing.Color.Black;
+            this.iconButtonReport.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonReport.IconSize = 28;
+            this.iconButtonReport.Location = new System.Drawing.Point(0, 323);
+            this.iconButtonReport.Name = "iconButtonReport";
+            this.iconButtonReport.Size = new System.Drawing.Size(313, 45);
+            this.iconButtonReport.TabIndex = 7;
+            this.iconButtonReport.Text = "Report";
+            this.iconButtonReport.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.iconButtonReport.UseVisualStyleBackColor = false;
+            this.iconButtonReport.Click += new System.EventHandler(this.iconButtonReport_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -329,5 +352,6 @@
         private FontAwesome.Sharp.IconButton iconButtonDashboard;
         private FontAwesome.Sharp.IconButton iconButtonPublishers;
         private FontAwesome.Sharp.IconButton iconButtonAuthors;
+        private FontAwesome.Sharp.IconButton iconButtonReport;
     }
 }

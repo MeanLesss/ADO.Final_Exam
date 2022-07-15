@@ -34,6 +34,8 @@
             this.iconButtonMinus = new FontAwesome.Sharp.IconButton();
             this.iconButtonSave = new FontAwesome.Sharp.IconButton();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
+            this.labelPrice = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxBookCover)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +47,7 @@
             this.textBoxTitle.Location = new System.Drawing.Point(14, 318);
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.ReadOnly = true;
-            this.textBoxTitle.Size = new System.Drawing.Size(296, 24);
+            this.textBoxTitle.Size = new System.Drawing.Size(192, 24);
             this.textBoxTitle.TabIndex = 3;
             this.textBoxTitle.Text = "Title";
             // 
@@ -121,10 +123,34 @@
             this.textBoxQuantity.Size = new System.Drawing.Size(61, 31);
             this.textBoxQuantity.TabIndex = 7;
             // 
+            // labelPrice
+            // 
+            this.labelPrice.AutoSize = true;
+            this.labelPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPrice.ForeColor = System.Drawing.Color.Lime;
+            this.labelPrice.Location = new System.Drawing.Point(227, 322);
+            this.labelPrice.Name = "labelPrice";
+            this.labelPrice.Size = new System.Drawing.Size(74, 20);
+            this.labelPrice.TabIndex = 8;
+            this.labelPrice.Text = "$100,00";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Lime;
+            this.label1.Location = new System.Drawing.Point(212, 322);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 20);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "$";
+            // 
             // BookStockCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.textBoxQuantity);
             this.Controls.Add(this.iconButtonSave);
             this.Controls.Add(this.iconButtonMinus);
@@ -148,5 +174,7 @@
         private FontAwesome.Sharp.IconButton iconButtonMinus;
         private FontAwesome.Sharp.IconButton iconButtonSave;
         private System.Windows.Forms.TextBox textBoxQuantity;
+        private System.Windows.Forms.Label labelPrice;
+        private System.Windows.Forms.Label label1;
     }
 }

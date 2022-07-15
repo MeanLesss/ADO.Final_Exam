@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panelOption = new System.Windows.Forms.Panel();
-            this.iconButtonDashboard = new FontAwesome.Sharp.IconButton();
             this.panelUserbanner = new System.Windows.Forms.Panel();
             this.iconButtonUserConf = new FontAwesome.Sharp.IconButton();
             this.labelID = new System.Windows.Forms.Label();
@@ -40,43 +39,28 @@
             this.ButtonLogOut = new FontAwesome.Sharp.IconButton();
             this.panelControl = new System.Windows.Forms.Panel();
             this.iconButtonBooks = new FontAwesome.Sharp.IconButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.iconButtonRefreshSale = new FontAwesome.Sharp.IconButton();
+            this.iconButtonSearchStock = new FontAwesome.Sharp.IconButton();
+            this.textBoxSearchStock = new System.Windows.Forms.TextBox();
+            this.panelOnSale = new System.Windows.Forms.FlowLayoutPanel();
             this.panelOption.SuspendLayout();
             this.panelUserbanner.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUser)).BeginInit();
+            this.panelControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelOption
             // 
             this.panelOption.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelOption.Controls.Add(this.iconButtonDashboard);
             this.panelOption.Controls.Add(this.iconButtonBooks);
             this.panelOption.Controls.Add(this.panelUserbanner);
             this.panelOption.Controls.Add(this.ButtonLogOut);
             this.panelOption.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelOption.Location = new System.Drawing.Point(0, 0);
             this.panelOption.Name = "panelOption";
-            this.panelOption.Size = new System.Drawing.Size(313, 751);
+            this.panelOption.Size = new System.Drawing.Size(313, 934);
             this.panelOption.TabIndex = 3;
-            // 
-            // iconButtonDashboard
-            // 
-            this.iconButtonDashboard.BackColor = System.Drawing.Color.Lime;
-            this.iconButtonDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButtonDashboard.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.iconButtonDashboard.Dock = System.Windows.Forms.DockStyle.Top;
-            this.iconButtonDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButtonDashboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButtonDashboard.IconChar = FontAwesome.Sharp.IconChar.ChartColumn;
-            this.iconButtonDashboard.IconColor = System.Drawing.Color.Black;
-            this.iconButtonDashboard.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButtonDashboard.IconSize = 28;
-            this.iconButtonDashboard.Location = new System.Drawing.Point(0, 143);
-            this.iconButtonDashboard.Name = "iconButtonDashboard";
-            this.iconButtonDashboard.Size = new System.Drawing.Size(313, 45);
-            this.iconButtonDashboard.TabIndex = 2;
-            this.iconButtonDashboard.Text = "Dashboard";
-            this.iconButtonDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.iconButtonDashboard.UseVisualStyleBackColor = false;
             // 
             // panelUserbanner
             // 
@@ -181,7 +165,7 @@
             this.ButtonLogOut.IconColor = System.Drawing.Color.Black;
             this.ButtonLogOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.ButtonLogOut.IconSize = 28;
-            this.ButtonLogOut.Location = new System.Drawing.Point(0, 706);
+            this.ButtonLogOut.Location = new System.Drawing.Point(0, 889);
             this.ButtonLogOut.Name = "ButtonLogOut";
             this.ButtonLogOut.Size = new System.Drawing.Size(313, 45);
             this.ButtonLogOut.TabIndex = 0;
@@ -192,10 +176,15 @@
             // 
             // panelControl
             // 
+            this.panelControl.Controls.Add(this.iconButtonRefreshSale);
+            this.panelControl.Controls.Add(this.iconButtonSearchStock);
+            this.panelControl.Controls.Add(this.textBoxSearchStock);
+            this.panelControl.Controls.Add(this.panelOnSale);
+            this.panelControl.Controls.Add(this.label2);
             this.panelControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl.Location = new System.Drawing.Point(0, 0);
             this.panelControl.Name = "panelControl";
-            this.panelControl.Size = new System.Drawing.Size(1219, 751);
+            this.panelControl.Size = new System.Drawing.Size(1766, 934);
             this.panelControl.TabIndex = 4;
             // 
             // iconButtonBooks
@@ -218,19 +207,89 @@
             this.iconButtonBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.iconButtonBooks.UseVisualStyleBackColor = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Magneto", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Lime;
+            this.label2.Location = new System.Drawing.Point(319, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(133, 44);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Books";
+            // 
+            // iconButtonRefreshSale
+            // 
+            this.iconButtonRefreshSale.FlatAppearance.BorderSize = 0;
+            this.iconButtonRefreshSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonRefreshSale.IconChar = FontAwesome.Sharp.IconChar.UndoAlt;
+            this.iconButtonRefreshSale.IconColor = System.Drawing.Color.Lime;
+            this.iconButtonRefreshSale.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonRefreshSale.IconSize = 28;
+            this.iconButtonRefreshSale.Location = new System.Drawing.Point(659, 23);
+            this.iconButtonRefreshSale.Name = "iconButtonRefreshSale";
+            this.iconButtonRefreshSale.Size = new System.Drawing.Size(44, 34);
+            this.iconButtonRefreshSale.TabIndex = 27;
+            this.iconButtonRefreshSale.UseVisualStyleBackColor = true;
+            this.iconButtonRefreshSale.Click += new System.EventHandler(this.iconButtonRefreshSale_Click);
+            // 
+            // iconButtonSearchStock
+            // 
+            this.iconButtonSearchStock.BackColor = System.Drawing.Color.Lime;
+            this.iconButtonSearchStock.FlatAppearance.BorderSize = 0;
+            this.iconButtonSearchStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButtonSearchStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButtonSearchStock.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.iconButtonSearchStock.IconColor = System.Drawing.Color.Black;
+            this.iconButtonSearchStock.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButtonSearchStock.IconSize = 28;
+            this.iconButtonSearchStock.Location = new System.Drawing.Point(1268, 20);
+            this.iconButtonSearchStock.Name = "iconButtonSearchStock";
+            this.iconButtonSearchStock.Size = new System.Drawing.Size(102, 34);
+            this.iconButtonSearchStock.TabIndex = 26;
+            this.iconButtonSearchStock.Text = "Search";
+            this.iconButtonSearchStock.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButtonSearchStock.UseVisualStyleBackColor = false;
+            this.iconButtonSearchStock.Click += new System.EventHandler(this.iconButtonSearchStock_Click);
+            // 
+            // textBoxSearchStock
+            // 
+            this.textBoxSearchStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSearchStock.ForeColor = System.Drawing.Color.LightGray;
+            this.textBoxSearchStock.Location = new System.Drawing.Point(718, 19);
+            this.textBoxSearchStock.Name = "textBoxSearchStock";
+            this.textBoxSearchStock.Size = new System.Drawing.Size(525, 35);
+            this.textBoxSearchStock.TabIndex = 25;
+            this.textBoxSearchStock.Text = "Title, Author, Genre";
+            this.textBoxSearchStock.Enter += new System.EventHandler(this.textBoxSearchStock_Enter);
+            // 
+            // panelOnSale
+            // 
+            this.panelOnSale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelOnSale.AutoScroll = true;
+            this.panelOnSale.Location = new System.Drawing.Point(400, 102);
+            this.panelOnSale.Name = "panelOnSale";
+            this.panelOnSale.Size = new System.Drawing.Size(1253, 798);
+            this.panelOnSale.TabIndex = 24;
+            // 
             // SellerDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1219, 751);
+            this.ClientSize = new System.Drawing.Size(1766, 934);
             this.Controls.Add(this.panelOption);
             this.Controls.Add(this.panelControl);
             this.Name = "SellerDashboard";
             this.Text = "SellerDashboard";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SellerDashboard_FormClosed);
+            this.Load += new System.EventHandler(this.SellerDashboard_Load);
             this.panelOption.ResumeLayout(false);
             this.panelUserbanner.ResumeLayout(false);
             this.panelUserbanner.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBoxUser)).EndInit();
+            this.panelControl.ResumeLayout(false);
+            this.panelControl.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -238,7 +297,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panelOption;
-        private FontAwesome.Sharp.IconButton iconButtonDashboard;
         private FontAwesome.Sharp.IconButton iconButtonBooks;
         private System.Windows.Forms.Panel panelUserbanner;
         private FontAwesome.Sharp.IconButton iconButtonUserConf;
@@ -249,5 +307,10 @@
         private FontAwesome.Sharp.IconPictureBox iconPictureBoxUser;
         private FontAwesome.Sharp.IconButton ButtonLogOut;
         private System.Windows.Forms.Panel panelControl;
+        private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconButton iconButtonRefreshSale;
+        private FontAwesome.Sharp.IconButton iconButtonSearchStock;
+        private System.Windows.Forms.TextBox textBoxSearchStock;
+        private System.Windows.Forms.FlowLayoutPanel panelOnSale;
     }
 }

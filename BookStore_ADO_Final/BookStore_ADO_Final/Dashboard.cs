@@ -107,5 +107,13 @@ namespace BookStore_ADO_Final
                 new AddPopUP(new SignUpUC(admin, "Admin", true)).Show();
             }
         }
+
+        private void iconButtonReport_Click(object sender, EventArgs e)
+        {
+           /* panelControl.Controls.Clear();
+            var uc = ;
+            uc.Dock = DockStyle.Fill;
+            panelControl.Controls.Add(uc);*/
+        }
     }
 }
